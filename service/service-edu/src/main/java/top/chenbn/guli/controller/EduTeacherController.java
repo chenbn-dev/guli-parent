@@ -94,7 +94,13 @@ public class EduTeacherController {
     return Result.ok().data("totalPage", totalPage).data("rows", records);
   }
 
-  // 3.分页查询方法
+  /**
+   * 3.分页查询方法
+   *
+   * @param currentPage 当前页码
+   * @param limit 每页记录数
+   * @return
+   */
   @GetMapping("/pageTeacher/{currentPage}/{limit}")
   public Result pageListTeacher(@PathVariable Long currentPage, @PathVariable Long limit) {
     // 创建page对象
@@ -112,7 +118,12 @@ public class EduTeacherController {
     return Result.ok().data(map);
   }
 
-  // 2 逻辑删除讲师的方法
+  /**
+   * 2. 根据id逻辑删除讲师的方法
+   *
+   * @param id
+   * @return
+   */
   @ApiOperation(value = "删除指定id的讲师")
   @DeleteMapping("/{id}") // {id} 表示id需要通过路径进行传递 localhost:8001/edu/1
   public Result removeTeacher(
@@ -134,6 +145,7 @@ public class EduTeacherController {
   public Result findAllTeacher() {
     // 调用service的方法实现查询所有的操作
     List<EduTeacher> list = teacherService.list(null);
+    int i = 10 / 0 ;
     return Result.ok().data("items", list);
   }
 }
