@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.entity.EduTeacher;
 import top.chenbn.guli.entity.vo.TeacherQueryVO;
+import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.service.EduTeacherService;
 
 import java.util.HashMap;
@@ -29,7 +30,12 @@ import java.util.Map;
 public class EduTeacherController {
   @Autowired private EduTeacherService teacherService;
 
-  // 7、讲师修改功能
+  /**
+   * 7、讲师修改功能
+   *
+   * @param eduTeacher 将要修改的参数封装到EdeTeacher
+   * @return
+   */
   @PostMapping("/updateTeacher")
   public Result updateTeacher(@RequestBody EduTeacher eduTeacher) {
     boolean flag = teacherService.updateById(eduTeacher);
@@ -40,14 +46,24 @@ public class EduTeacherController {
     }
   }
 
-  // 6、根据讲师ID进行查询
+  /**
+   * 6、根据讲师ID进行查询
+   *
+   * @param id
+   * @return
+   */
   @GetMapping("/getTeacher/{id}")
   public Result getTeacher(@PathVariable Integer id) {
     EduTeacher eduTeacher = teacherService.getById(id);
     return Result.ok().data("teacher", eduTeacher);
   }
 
-  // 5.添加讲师的接口方法
+  /**
+   * 5.添加讲师的接口方法
+   *
+   * @param eduTeacher
+   * @return
+   */
   @PostMapping("/addTeacher")
   public Result addTeacher(@RequestBody EduTeacher eduTeacher) {
     boolean save = teacherService.save(eduTeacher);
@@ -58,7 +74,14 @@ public class EduTeacherController {
     }
   }
 
-  // 4.条件查询带分页的方法
+  /**
+   * 4.条件查询带分页的方法
+   *
+   * @param currentPage
+   * @param limit
+   * @param teacherQueryVO
+   * @return
+   */
   @PostMapping("/pageTeacherCondition/{currentPage}/{limit}")
   public Result pageTeacherCondition(
       @PathVariable Long currentPage,
@@ -127,10 +150,7 @@ public class EduTeacherController {
   @ApiOperation(value = "删除指定id的讲师")
   @DeleteMapping("/{id}") // {id} 表示id需要通过路径进行传递 localhost:8001/edu/1
   public Result removeTeacher(
-      @ApiParam(name = "id", value = "讲师ID", required = true)
-          // @PathVariable 获取路径中输入的id值
-          @PathVariable
-          String id) {
+      @ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable String id) {
     boolean flag = teacherService.removeById(id);
     if (flag) {
       return Result.ok();
@@ -139,12 +159,21 @@ public class EduTeacherController {
     }
   }
 
-  // 1.查询讲师表中的所有数据
+  /**
+   * 1.查询讲师表中的所有数据
+   *
+   * @return
+   */
   @ApiOperation(value = "获取所有讲师列表")
   @GetMapping("/findAll")
   public Result findAllTeacher() {
     // 调用service的方法实现查询所有的操作
     List<EduTeacher> list = teacherService.list(null);
+    try {
+      int i = 10 / 0;
+    } catch (Exception e) {
+      throw new GuliException(20001, "执行了自定义异常处理...");
+    }
     return Result.ok().data("items", list);
   }
 }
