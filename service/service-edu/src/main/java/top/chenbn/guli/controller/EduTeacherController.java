@@ -1,5 +1,6 @@
 package top.chenbn.guli.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -9,7 +10,9 @@ import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.entity.EduTeacher;
 import top.chenbn.guli.service.EduTeacherService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 讲师 前端控制器
@@ -45,5 +48,23 @@ public class EduTeacherController {
     } else {
       return Result.error();
     }
+  }
+
+  // 3.分页查询方法
+  @GetMapping("/pageTeacher/{currentPage}/{limit}")
+  public Result pageListTeacher(@PathVariable Long currentPage, @PathVariable Long limit) {
+    // 创建page对象
+    Page<EduTeacher> pageTeacher = new Page<>(currentPage, limit);
+    // 调用方法时候，底层封装，把分页所有数据封装到pageTeacher对象里面
+    teacherService.page(pageTeacher, null);
+    long totalPage = pageTeacher.getTotal();
+    List<EduTeacher> records = pageTeacher.getRecords();
+    // 返回结果第一种写法
+    //    return Result.ok().data("totalPage",totalPage).data("rows",records);
+    // 返回结果第二种写法
+    Map map = new HashMap();
+    map.put("totalPage", totalPage);
+    map.put("rows", records);
+    return Result.ok().data(map);
   }
 }
