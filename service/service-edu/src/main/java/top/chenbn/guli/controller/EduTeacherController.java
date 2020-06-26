@@ -145,7 +145,6 @@ public class EduTeacherController {
   public Result findAllTeacher() {
     // 调用service的方法实现查询所有的操作
     List<EduTeacher> list = teacherService.list(null);
-    int i = 10 / 0 ;
     return Result.ok().data("items", list);
   }
 }
