@@ -1,8 +1,10 @@
 package top.chenbn.guli.exceptionhandler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.chenbn.guli.commonutil.ExceptionUtil;
 import top.chenbn.guli.commonutil.Result;
 
 /**
@@ -10,6 +12,7 @@ import top.chenbn.guli.commonutil.Result;
  * @create 2020-06-26 15:19
  */
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
   @ResponseBody
@@ -29,6 +32,7 @@ public class GlobalExceptionHandler {
   @ResponseBody
   @ExceptionHandler(GuliException.class) // 指定出现什么异常执行这个方法
   public Result error(GuliException e) {
+    log.error(ExceptionUtil.getMessage(e));
     e.printStackTrace();
     return Result.error().code(e.getCode()).message(e.getMsg());
   }
