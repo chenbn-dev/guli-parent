@@ -29,6 +29,15 @@ import java.util.Map;
 public class EduTeacherController {
   @Autowired private EduTeacherService teacherService;
 
+   
+
+  // 6、根据讲师ID进行查询
+  @GetMapping("/getTeacher/{id}")
+  public Result getTeacher(@PathVariable Integer id) {
+    EduTeacher eduTeacher = teacherService.getById(id);
+    return Result.ok().data("teacher", eduTeacher);
+  }
+
   // 5.添加讲师的接口方法
   @PostMapping("/addTeacher")
   public Result addTeacher(@RequestBody EduTeacher eduTeacher) {
