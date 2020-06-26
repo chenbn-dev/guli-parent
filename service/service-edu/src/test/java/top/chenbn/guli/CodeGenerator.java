@@ -1,4 +1,4 @@
-package top.chenbn.guli.institude;
+package top.chenbn.guli;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;

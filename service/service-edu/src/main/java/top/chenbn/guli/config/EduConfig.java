@@ -1,4 +1,4 @@
-package top.chenbn.guli.institude.config;
+package top.chenbn.guli.config;
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Profile;
  * @create 2020-06-26 8:42
  */
 @Configuration
-@MapperScan("top.chenbn.guli.institude.mapper")
+@MapperScan("top.chenbn.guli.mapper")
 public class EduConfig {
   /** 乐观锁插件 */
   @Bean
