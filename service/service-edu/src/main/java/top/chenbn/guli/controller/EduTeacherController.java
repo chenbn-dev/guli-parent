@@ -29,7 +29,16 @@ import java.util.Map;
 public class EduTeacherController {
   @Autowired private EduTeacherService teacherService;
 
-   
+  // 7、讲师修改功能
+  @PostMapping("/updateTeacher")
+  public Result updateTeacher(@RequestBody EduTeacher eduTeacher) {
+    boolean flag = teacherService.updateById(eduTeacher);
+    if (flag) {
+      return Result.ok();
+    } else {
+      return Result.error();
+    }
+  }
 
   // 6、根据讲师ID进行查询
   @GetMapping("/getTeacher/{id}")
