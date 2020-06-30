@@ -54,7 +54,7 @@ public class EduTeacherController {
    * @return
    */
   @GetMapping("/getTeacher/{id}")
-  public Result getTeacher(@PathVariable Integer id) {
+  public Result getTeacher(@PathVariable Long id) {
     EduTeacher eduTeacher = teacherService.getById(id);
     return Result.ok().data("teacher", eduTeacher);
   }
@@ -111,6 +111,7 @@ public class EduTeacherController {
     if (!StringUtils.isEmpty(end)) {
       wrapper.le("gmt_modified", end);
     }
+    wrapper.orderByDesc("gmt_create");
     // 调用方法实现条件分页查询
     teacherService.page(pageTeacher, wrapper);
     Long totalPage = pageTeacher.getTotal();
@@ -149,9 +150,9 @@ public class EduTeacherController {
    * @return
    */
   @ApiOperation(value = "删除指定id的讲师")
-  @DeleteMapping("/{id}") // {id} 表示id需要通过路径进行传递 localhost:8001/edu/1
+  @DeleteMapping("/delete/{id}") // {id} 表示id需要通过路径进行传递 localhost:8001/edu/1
   public Result removeTeacher(
-      @ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable String id) {
+      @ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable Long id) {
     boolean flag = teacherService.removeById(id);
     if (flag) {
       return Result.ok();
