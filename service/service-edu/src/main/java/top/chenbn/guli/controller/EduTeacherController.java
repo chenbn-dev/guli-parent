@@ -26,8 +26,8 @@ import java.util.Map;
  */
 @RestController
 @Api(description = "讲师管理模块")
-@RequestMapping("/guli/edu/teacher")
-@CrossOrigin
+@RequestMapping("/edu/service/teacher")
+@CrossOrigin // 解决跨域
 public class EduTeacherController {
   @Autowired private EduTeacherService teacherService;
 
