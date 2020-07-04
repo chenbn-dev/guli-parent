@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.entity.EduTeacher;
 import top.chenbn.guli.entity.vo.TeacherQueryVO;
-import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.service.EduTeacherService;
 
 import java.util.HashMap;
@@ -171,11 +170,11 @@ public class EduTeacherController {
   public Result findAllTeacher() {
     // 调用service的方法实现查询所有的操作
     List<EduTeacher> list = teacherService.list(null);
-    try {
-      int i = 10 / 0;
-    } catch (Exception e) {
-      throw new GuliException(20001, "执行了自定义异常处理...");
-    }
+    //    try {
+    //      int i = 10 / 0;
+    //    } catch (Exception e) {
+    //      throw new GuliException(20001, "执行了自定义异常处理...");
+    //    }
     return Result.ok().data("items", list);
   }
 }
