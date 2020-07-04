@@ -1,10 +1,7 @@
 package top.chenbn.guli.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.service.EduSubjectService;
@@ -20,6 +17,8 @@ import top.chenbn.guli.service.EduSubjectService;
 @CrossOrigin
 public class EduSubjectController {
   @Autowired private EduSubjectService eduSubjectService;
+
+
   /**
    * 添加课程分类，获取上传过来的文件，把文件内容读取出来
    *
