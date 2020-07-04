@@ -41,13 +41,13 @@ public class SubjectExcelListener extends AnalysisEventListener {
       existOneSubject.setTitle(subjectData.getOneSubjectName());
       eduSubjectService.save(existOneSubject);
     }
-    // 获取一级分裂的id值
-    Long pid = existOneSubject.getId();
+    // 获取一级分类的id值
+    String pid = existOneSubject.getId();
     EduSubject existTwoSubject =
-        this.existTwoSubject(subjectData.getTwoSubjectName(), eduSubjectService, pid + "");
+        this.existTwoSubject(subjectData.getTwoSubjectName(), eduSubjectService, pid);
     if (existTwoSubject == null) {
       existTwoSubject = new EduSubject();
-      existTwoSubject.setParentId(pid + "");
+      existTwoSubject.setParentId(pid);
       existTwoSubject.setTitle(subjectData.getTwoSubjectName());
       eduSubjectService.save(existTwoSubject);
     }
