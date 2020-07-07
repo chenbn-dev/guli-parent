@@ -12,14 +12,12 @@ import top.chenbn.guli.service.EduCourseService;
  * @author chenbn
  * @since 2020-07-04
  */
-@CrossOrigin
 @RestController
 @RequestMapping("/guli/edu/course")
+@CrossOrigin
 public class EduCourseController {
 
   @Autowired private EduCourseService courseService;
-
-
 
   /**
    * 修改课程信息
