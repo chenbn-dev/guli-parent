@@ -9,6 +9,7 @@ import top.chenbn.guli.entity.EduChapter;
 import top.chenbn.guli.entity.EduVideo;
 import top.chenbn.guli.entity.chapter.ChapterVO;
 import top.chenbn.guli.entity.chapter.VideoVO;
+import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.mapper.EduChapterMapper;
 import top.chenbn.guli.service.EduChapterService;
 import top.chenbn.guli.service.EduVideoService;
@@ -58,5 +59,18 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
     }
 
     return finalList;
+  }
+
+  @Override
+  public boolean deleteChapter(String chapterId) {
+    QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
+    wrapper.eq("chapter_id", chapterId);
+    int count = videoService.count(wrapper);
+    if (count > 0) {
+      throw new GuliException(20001, "不能删除");
+    } else {
+      int result = baseMapper.deleteById(chapterId);
+      return result > 0;
+    }
   }
 }

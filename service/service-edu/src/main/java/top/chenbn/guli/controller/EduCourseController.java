@@ -19,6 +19,32 @@ public class EduCourseController {
 
   @Autowired private EduCourseService courseService;
 
+
+
+  /**
+   * 修改课程信息
+   *
+   * @param courseInfoVO
+   * @return
+   */
+  @PostMapping("/updateCourseInfo")
+  public Result updateCourseInfo(@RequestBody CourseInfoVO courseInfoVO) {
+    courseService.updateCourseInfo(courseInfoVO);
+    return Result.ok();
+  }
+
+  /**
+   * 根据id查询课程信息
+   *
+   * @param courseId
+   * @return
+   */
+  @GetMapping("/getCourseInfo/{courseId}")
+  public Result getCourseInfo(@PathVariable String courseId) {
+    CourseInfoVO courseInfoVO = courseService.getCourseInfo(courseId);
+    return Result.ok().data("courseInfoVO", courseInfoVO);
+  }
+
   /**
    * 添加课程的基本方法
    *

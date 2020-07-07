@@ -19,4 +19,13 @@ public interface EduCourseService extends IService<EduCourse> {
    * @return
    */
   String saveCourseInfo(CourseInfoVO courseInfoVO);
+  /**
+   * 根据id查询课程信息
+   *
+   * @param courseId
+   * @return
+   */
+  CourseInfoVO getCourseInfo(String courseId);
+
+  void updateCourseInfo(CourseInfoVO courseInfoVO);
 }
