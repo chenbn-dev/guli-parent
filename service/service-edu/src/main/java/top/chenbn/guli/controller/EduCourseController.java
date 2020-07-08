@@ -3,6 +3,7 @@ package top.chenbn.guli.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.entity.EduCourse;
 import top.chenbn.guli.entity.vo.CourseInfoVO;
 import top.chenbn.guli.entity.vo.CoursePublishVO;
 import top.chenbn.guli.service.EduCourseService;
@@ -67,5 +68,20 @@ public class EduCourseController {
   public Result getPublishCourseInfo(@PathVariable String id) {
     CoursePublishVO coursePublishVo = courseService.publishCourseInfo(id);
     return Result.ok().data("publishCourse", coursePublishVo);
+  }
+
+  /**
+   * 课程最终发布，修改课程状态
+   *
+   * @param id
+   * @return
+   */
+  @PostMapping("/publishCourse/{id}")
+  public Result publishCourse(@PathVariable String id) {
+    EduCourse course = new EduCourse();
+    course.setId(id);
+    course.setStatus("Normal");
+    courseService.updateById(course);
+    return Result.ok();
   }
 }
