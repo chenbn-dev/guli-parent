@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import top.chenbn.guli.entity.EduCourse;
 import top.chenbn.guli.entity.EduCourseDescription;
 import top.chenbn.guli.entity.vo.CourseInfoVO;
+import top.chenbn.guli.entity.vo.CoursePublishVO;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.mapper.EduCourseMapper;
 import top.chenbn.guli.service.EduCourseDescriptionService;
@@ -67,5 +68,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     courseDescription.setId(courseInfoVO.getId());
     courseDescription.setDescription(courseInfoVO.getDescription());
     courseDescriptionService.updateById(courseDescription);
+  }
+
+  @Override
+  public CoursePublishVO publishCourseInfo(String id) {
+    CoursePublishVO coursePublishVO = baseMapper.getPublishCourseInfo(id);
+    return coursePublishVO;
   }
 }

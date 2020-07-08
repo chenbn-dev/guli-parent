@@ -13,6 +13,10 @@ spring:
   jackson:  #返回json的全局时间格式
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+#配置mapper xml文件的路径
+mybatis-plus:
+  mapper-locations: classpath:top/chenbn/guli/mapper/xml/*.xml
 #mybatis-plus:
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis日志

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.entity.vo.CourseInfoVO;
+import top.chenbn.guli.entity.vo.CoursePublishVO;
 import top.chenbn.guli.service.EduCourseService;
 
 /**
@@ -54,5 +55,17 @@ public class EduCourseController {
     // 返回添加课程之后的课程id，为了后面添加大岗使用
     String id = courseService.saveCourseInfo(courseInfoVO);
     return Result.ok().data("courseId", id);
+  }
+
+  /**
+   * 根据课程id查询课程确认信息
+   *
+   * @param id
+   * @return
+   */
+  @GetMapping("getPublishCourseInfo/{id}")
+  public Result getPublishCourseInfo(@PathVariable String id) {
+    CoursePublishVO coursePublishVo = courseService.publishCourseInfo(id);
+    return Result.ok().data("publishCourse", coursePublishVo);
   }
 }
