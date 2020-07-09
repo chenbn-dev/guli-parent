@@ -7,10 +7,3 @@ spring:
   profiles:
     active: dev #环境设置：dev、test、prod
 #不同的服务器，地址不同
-aliyun:
-  oss:
-    file:
-      endpoint: oss-cn-beijing.aliyuncs.com
-      keyid: LTAI4G5UKH5fkZrbr94F8TmT
-      keysecret: OtQJk9uwPBE0luENOTij69qwQM2IUS
-      bucketname: guli-edu-teacher
