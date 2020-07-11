@@ -13,7 +13,7 @@ import top.chenbn.guli.service.EduVideoService;
  * @since 2020-07-04
  */
 @RestController
-@RequestMapping("/guli/edu/video")
+@RequestMapping("/edu/service/video")
 @CrossOrigin
 public class EduVideoController {
 

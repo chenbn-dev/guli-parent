@@ -10,8 +10,10 @@ import top.chenbn.guli.entity.vo.CourseInfoVO;
 import top.chenbn.guli.entity.vo.CoursePublishVO;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.mapper.EduCourseMapper;
+import top.chenbn.guli.service.EduChapterService;
 import top.chenbn.guli.service.EduCourseDescriptionService;
 import top.chenbn.guli.service.EduCourseService;
+import top.chenbn.guli.service.EduVideoService;
 
 /**
  * 课程 服务实现类
@@ -23,7 +25,13 @@ import top.chenbn.guli.service.EduCourseService;
 public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse>
     implements EduCourseService {
 
+  // 课程描述注入
   @Autowired private EduCourseDescriptionService courseDescriptionService;
+
+  // 注入小节和章节service
+  @Autowired private EduVideoService eduVideoService;
+
+  @Autowired private EduChapterService chapterService;
 
   @Override
   public String saveCourseInfo(CourseInfoVO courseInfoVO) {
@@ -74,5 +82,20 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
   public CoursePublishVO publishCourseInfo(String id) {
     CoursePublishVO coursePublishVO = baseMapper.getPublishCourseInfo(id);
     return coursePublishVO;
+  }
+
+  @Override
+  public void removeCourse(String courseId) { // 1 根据课程id删除小节
+    eduVideoService.removeVideoByCourseId(courseId);
+    // 2 根据课程id删除章节
+    chapterService.removeChapterByCourseId(courseId);
+    // 3 根据课程id删除描述
+    courseDescriptionService.removeById(courseId);
+    // 4 根据课程id删除课程本身
+    int result = baseMapper.deleteById(courseId);
+    // 失败返回
+    if (result == 0) {
+      throw new GuliException(20001, "删除失败");
+    }
   }
 }

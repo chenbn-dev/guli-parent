@@ -16,7 +16,7 @@ import java.util.List;
  * @since 2020-07-04
  */
 @RestController
-@RequestMapping("/guli/edu/chapter")
+@RequestMapping("/edu/service/chapter")
 @CrossOrigin
 public class EduChapterController {
   @Autowired private EduChapterService chapterService;

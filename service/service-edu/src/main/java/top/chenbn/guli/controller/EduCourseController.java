@@ -8,6 +8,8 @@ import top.chenbn.guli.entity.vo.CourseInfoVO;
 import top.chenbn.guli.entity.vo.CoursePublishVO;
 import top.chenbn.guli.service.EduCourseService;
 
+import java.util.List;
+
 /**
  * 课程 前端控制器
  *
@@ -15,12 +17,18 @@ import top.chenbn.guli.service.EduCourseService;
  * @since 2020-07-04
  */
 @RestController
-@RequestMapping("/guli/edu/course")
+@RequestMapping("/edu/service/course")
 @CrossOrigin
 public class EduCourseController {
 
   @Autowired private EduCourseService courseService;
+  // TODO 完成条件查询带分页
 
+  @GetMapping
+  public Result getCourseList() {
+    List<EduCourse> list = courseService.list(null);
+    return Result.ok().data("list", list);
+  }
   /**
    * 修改课程信息
    *
@@ -82,6 +90,18 @@ public class EduCourseController {
     course.setId(id);
     course.setStatus("Normal");
     courseService.updateById(course);
+    return Result.ok();
+  }
+
+  /**
+   * 删除课程
+   *
+   * @param courseId
+   * @return
+   */
+  @DeleteMapping("/{courseId}")
+  public Result deleteCourse(@PathVariable String courseId) {
+    courseService.removeCourse(courseId);
     return Result.ok();
   }
 }
