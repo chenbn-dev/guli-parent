@@ -14,5 +14,5 @@ spring:
 aliyun:
   vod:
     file:
-      keyid:
-      keysecret:
+      keyid: yourkeyid
+      keysecret: yourkeysecret

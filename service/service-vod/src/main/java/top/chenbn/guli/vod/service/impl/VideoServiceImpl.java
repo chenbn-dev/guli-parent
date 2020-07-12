@@ -3,19 +3,25 @@ package top.chenbn.guli.vod.service.impl;
 import com.aliyun.vod.upload.impl.UploadVideoImpl;
 import com.aliyun.vod.upload.req.UploadStreamRequest;
 import com.aliyun.vod.upload.resp.UploadStreamResponse;
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.vod.model.v20170321.DeleteVideoRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import top.chenbn.guli.vod.service.VodService;
+import top.chenbn.guli.exceptionhandler.GuliException;
+import top.chenbn.guli.vod.service.VideoService;
 import top.chenbn.guli.vod.util.ConstantVodUtils;
+import top.chenbn.guli.vod.util.InitVodCilent;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @author chbn
  * @create 2020-07-11 10:31
  */
 @Service
-public class VodServiceImpl implements VodService {
+public class VideoServiceImpl implements VideoService {
 
   @Override
   public String uploadAliyunVideo(MultipartFile file) {
@@ -49,6 +55,27 @@ public class VodServiceImpl implements VodService {
     } catch (Exception e) {
       e.printStackTrace();
       return null;
+    }
+  }
+
+  @Override
+  public void removeMoreAlyVideo(List videoIdList) {
+    try {
+      // 初始化对象
+      DefaultAcsClient client =
+          InitVodCilent.initVodClient(
+              ConstantVodUtils.ACCESS_KEY_ID, ConstantVodUtils.ACCESS_KEY_SECRET);
+      // 创建删除视频request对象
+      DeleteVideoRequest request = new DeleteVideoRequest();
+      // videoIdList值转换成 1,2,3
+      String videoIds = StringUtils.join(videoIdList.toArray(), ",");
+      // 向request设置视频id
+      request.setVideoIds(videoIds);
+      // 调用初始化对象的方法实现删除
+      client.getAcsResponse(request);
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new GuliException(20001, "删除视频失败");
     }
   }
 }
