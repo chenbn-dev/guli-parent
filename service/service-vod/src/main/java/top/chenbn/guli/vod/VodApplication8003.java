@@ -3,12 +3,14 @@ package top.chenbn.guli.vod;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author chbn
  * @create 2020-07-11 9:37
  */
+@EnableDiscoveryClient // nacos注解
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @ComponentScan(basePackages = {"top.chenbn.guli"})
 public class VodApplication8003 {

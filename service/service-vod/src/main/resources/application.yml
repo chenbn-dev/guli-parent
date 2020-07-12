@@ -10,9 +10,13 @@ spring:
     multipart:
       max-file-size: 1024MB  # 最大上传单个文件大小：默认1M
       max-request-size: 1024MB  # 最大置总上传的数据大小 ：默认10M
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 #阿里云 vod
 aliyun:
   vod:
     file:
-      keyid: yourkeyid
-      keysecret: yourkeysecret
+      keyid:
+      keysecret:

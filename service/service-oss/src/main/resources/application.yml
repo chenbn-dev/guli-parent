@@ -6,6 +6,10 @@ spring:
     name: service-oss-8002
   profiles:
     active: dev #环境设置：dev、test、prod
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 #不同的服务器，地址不同
 aliyun:
   oss:

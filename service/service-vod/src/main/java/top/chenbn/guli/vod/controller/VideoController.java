@@ -35,7 +35,13 @@ public class VideoController {
     String videoId = videoService.uploadAliyunVideo(file);
     return Result.ok().data("videoId", videoId);
   }
-  // 根据视频id删除阿里云视频
+
+  /**
+   * 根据视频id删除阿里云视频
+   *
+   * @param id
+   * @return
+   */
   @DeleteMapping("/removeAliyunVideo/{id}")
   public Result removeAliyunVideo(@PathVariable String id) {
     try {

@@ -1,7 +1,9 @@
 package top.chenbn.guli.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import top.chenbn.guli.client.VodClient;
 import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.entity.EduVideo;
 import top.chenbn.guli.service.EduVideoService;
@@ -19,6 +21,7 @@ public class EduVideoController {
 
   @Autowired private EduVideoService videoService;
 
+  @Autowired private VodClient vodClient;
   /**
    * 添加小节
    *
@@ -42,15 +45,23 @@ public class EduVideoController {
     videoService.updateById(eduVideo);
     return Result.ok();
   }
-  // TODO 这个方法后面需要完善：删除小节的时候，同时把里面视频删除
+
   /**
-   * 删除小节
+   * 删除小节并删除对应的阿里云视频
    *
    * @param id
    * @return
    */
   @DeleteMapping("/remove/{id}")
   public Result remove(@PathVariable String id) {
+    // 根据小节id获取到视频id
+    EduVideo eduVideo = videoService.getById(id);
+    String videoSourceId = eduVideo.getVideoSourceId();
+    // 判断小节里是否有视频id
+    if (!StringUtils.isEmpty(videoSourceId)) {
+      // 根据视频id，远程调用实现视频删除
+      vodClient.removeAliyunVideo(videoSourceId);
+    }
     videoService.removeById(id);
     return Result.ok();
   }
