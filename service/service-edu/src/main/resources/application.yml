@@ -18,6 +18,21 @@ spring:
       discovery:
         server-addr: localhost:8848
 
+
+#开启熔断机制
+feign:
+  hystrix:
+    enabled: true
+# 设置hystrix超时时间，默认1000ms
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+
 #配置mapper xml文件的路径
 mybatis-plus:
   mapper-locations: classpath:top/chenbn/guli/mapper/xml/*.xml
@@ -26,4 +41,5 @@ mybatis-plus:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis日志
 #logging:
 #  level:
+
 #    root: warn  #设置日志级别

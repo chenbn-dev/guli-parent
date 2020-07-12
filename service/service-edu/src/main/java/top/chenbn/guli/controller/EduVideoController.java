@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.client.VodClient;
 import top.chenbn.guli.commonutil.Result;
 import top.chenbn.guli.entity.EduVideo;
+import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.service.EduVideoService;
 
 /**
@@ -60,7 +61,10 @@ public class EduVideoController {
     // 判断小节里是否有视频id
     if (!StringUtils.isEmpty(videoSourceId)) {
       // 根据视频id，远程调用实现视频删除
-      vodClient.removeAliyunVideo(videoSourceId);
+      Result result = vodClient.removeAliyunVideo(videoSourceId);
+      if (result.getCode() == 20001) {
+        throw new GuliException(20001, "视频删除失败，熔断");
+      }
     }
     videoService.removeById(id);
     return Result.ok();

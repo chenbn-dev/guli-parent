@@ -14,7 +14,7 @@ import java.util.List;
  * @create 2020-07-12 16:26
  */
 @Component
-@FeignClient("service-vod-8003")
+@FeignClient(name = "service-vod-8003", fallback = VodFileDegradeFeignClient.class)
 public interface VodClient {
   /**
    * 定义调用方法的路径 根据视频id删除阿里云视频
