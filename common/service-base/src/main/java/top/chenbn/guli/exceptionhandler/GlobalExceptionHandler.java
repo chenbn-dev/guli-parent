@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import top.chenbn.guli.commonutil.ExceptionUtil;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.ExceptionUtil;
+import top.chenbn.guli.common.util.Result;
 
 /**
  * @author chbn

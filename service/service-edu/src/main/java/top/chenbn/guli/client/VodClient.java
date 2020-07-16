@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.service.MsmService;
 import top.chenbn.guli.util.RandomUtil;
 

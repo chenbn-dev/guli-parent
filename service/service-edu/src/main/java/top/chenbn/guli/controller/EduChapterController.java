@@ -2,7 +2,7 @@ package top.chenbn.guli.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.entity.EduChapter;
 import top.chenbn.guli.entity.chapter.ChapterVO;
 import top.chenbn.guli.service.EduChapterService;

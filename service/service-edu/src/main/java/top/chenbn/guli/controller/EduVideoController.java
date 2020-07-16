@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.client.VodClient;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.entity.EduVideo;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.service.EduVideoService;

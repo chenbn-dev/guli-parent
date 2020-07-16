@@ -1,4 +1,4 @@
-package top.chenbn.guli.commonutil;
+package top.chenbn.guli.common.util;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

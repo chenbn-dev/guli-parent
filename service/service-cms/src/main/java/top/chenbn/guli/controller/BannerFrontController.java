@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.entity.CrmBanner;
 import top.chenbn.guli.service.CrmBannerService;
 

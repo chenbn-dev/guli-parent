@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.entity.CrmBanner;
 import top.chenbn.guli.service.CrmBannerService;
 

@@ -1,7 +1,7 @@
 package top.chenbn.guli.controller;
 
 import org.springframework.web.bind.annotation.*;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 
 /**
  * @author chbn

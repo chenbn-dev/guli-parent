@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import top.chenbn.guli.commonutil.Result;
+import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.entity.EduTeacher;
 import top.chenbn.guli.entity.vo.TeacherQueryVO;
 import top.chenbn.guli.service.EduTeacherService;
