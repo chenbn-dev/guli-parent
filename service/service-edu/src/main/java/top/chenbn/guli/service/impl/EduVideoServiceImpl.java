@@ -5,10 +5,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import top.chenbn.guli.service.EduVideoService;
 import top.chenbn.guli.client.VodClient;
 import top.chenbn.guli.entity.EduVideo;
 import top.chenbn.guli.mapper.EduVideoMapper;
-import top.chenbn.guli.service.EduVideoService;
 
 import java.util.ArrayList;
 import java.util.List;

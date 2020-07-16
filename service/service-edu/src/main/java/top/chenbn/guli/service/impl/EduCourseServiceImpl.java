@@ -4,16 +4,16 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.chenbn.guli.service.EduChapterService;
+import top.chenbn.guli.service.EduVideoService;
 import top.chenbn.guli.entity.EduCourse;
 import top.chenbn.guli.entity.EduCourseDescription;
 import top.chenbn.guli.entity.vo.CourseInfoVO;
 import top.chenbn.guli.entity.vo.CoursePublishVO;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.mapper.EduCourseMapper;
-import top.chenbn.guli.service.EduChapterService;
 import top.chenbn.guli.service.EduCourseDescriptionService;
 import top.chenbn.guli.service.EduCourseService;
-import top.chenbn.guli.service.EduVideoService;
 
 /**
  * 课程 服务实现类

@@ -1,8 +1,8 @@
 package top.chenbn.guli.service.impl;
 
+import top.chenbn.guli.service.EduCourseDescriptionService;
 import top.chenbn.guli.entity.EduCourseDescription;
 import top.chenbn.guli.mapper.EduCourseDescriptionMapper;
-import top.chenbn.guli.service.EduCourseDescriptionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

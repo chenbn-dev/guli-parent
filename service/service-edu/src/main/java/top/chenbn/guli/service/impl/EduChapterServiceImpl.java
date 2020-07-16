@@ -5,14 +5,14 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.chenbn.guli.service.EduChapterService;
+import top.chenbn.guli.service.EduVideoService;
 import top.chenbn.guli.entity.EduChapter;
 import top.chenbn.guli.entity.EduVideo;
 import top.chenbn.guli.entity.chapter.ChapterVO;
 import top.chenbn.guli.entity.chapter.VideoVO;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.mapper.EduChapterMapper;
-import top.chenbn.guli.service.EduChapterService;
-import top.chenbn.guli.service.EduVideoService;
 
 import java.util.ArrayList;
 import java.util.List;
