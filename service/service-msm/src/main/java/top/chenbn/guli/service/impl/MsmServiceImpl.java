@@ -24,7 +24,9 @@ public class MsmServiceImpl implements MsmService { // 发送短信的方法
     if (StringUtils.isEmpty(phone)) {
       return false;
     }
-    DefaultProfile profile = DefaultProfile.getProfile("default", "keyid", "keysecret");
+    DefaultProfile profile =
+        DefaultProfile.getProfile(
+            "default", "LTAI4G1VHTjAorNScbVLLMCm", "tPYIz9ASxkpg54Ch1DG6cMhSKmMgZs");
     IAcsClient client = new DefaultAcsClient(profile);
     // 设置相关固定的参数
     CommonRequest request = new CommonRequest();

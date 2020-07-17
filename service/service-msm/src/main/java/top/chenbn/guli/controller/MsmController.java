@@ -25,7 +25,7 @@ public class MsmController {
   @Autowired private RedisTemplate<String, String> redisTemplate;
 
   // 发送短信的方法
-  @GetMapping("send/{phone}")
+  @GetMapping("/send/{phone}")
   public Result sendMsm(@PathVariable String phone) {
     // 1 从redis获取验证码，如果获取到直接返回
     String code = redisTemplate.opsForValue().get(phone);
