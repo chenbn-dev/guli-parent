@@ -7,12 +7,12 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import top.chenbn.guli.common.util.JwtUtils;
-import top.chenbn.guli.common.util.MD5;
 import top.chenbn.guli.entity.UcenterMember;
 import top.chenbn.guli.entity.vo.RegisterVO;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.mapper.UcenterMemberMapper;
 import top.chenbn.guli.service.UcenterMemberService;
+import top.chenbn.guli.util.MD5;
 
 /**
  * 会员表 服务实现类

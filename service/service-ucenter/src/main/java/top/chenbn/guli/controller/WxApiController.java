@@ -6,12 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import top.chenbn.guli.common.util.ConstantWxUtils;
-import top.chenbn.guli.common.util.HttpClientUtils;
 import top.chenbn.guli.common.util.JwtUtils;
 import top.chenbn.guli.entity.UcenterMember;
 import top.chenbn.guli.exceptionhandler.GuliException;
 import top.chenbn.guli.service.UcenterMemberService;
+import top.chenbn.guli.util.ConstantWxUtils;
+import top.chenbn.guli.util.HttpClientUtils;
 
 import java.net.URLEncoder;
 import java.util.HashMap;

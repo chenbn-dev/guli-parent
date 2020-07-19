@@ -1,4 +1,4 @@
-package top.chenbn.guli.common.util;
+package top.chenbn.guli.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

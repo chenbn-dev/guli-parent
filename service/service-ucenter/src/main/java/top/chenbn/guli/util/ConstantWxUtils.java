@@ -1,4 +1,4 @@
-package top.chenbn.guli.common.util;
+package top.chenbn.guli.util;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;

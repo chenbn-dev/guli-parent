@@ -1,4 +1,4 @@
-package top.chenbn.guli.common.util;
+package top.chenbn.guli.util;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
