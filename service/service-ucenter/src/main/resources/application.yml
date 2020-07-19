@@ -1,10 +1,8 @@
-#服务端口
 server:
-  port: 8006
+  port: 8150
 spring:
   application:
-    name: service-ucenter-8006
-
+    name: service-ucenter-8150
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/guli_institude?serverTimezone=GMT%2B8
@@ -24,7 +22,11 @@ spring:
   jackson:  #返回json的全局时间格式
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-
+wx:
+  open:
+    app_id: wxed9954c01bb89b47  # 微信开放平台 appid
+    app_secret: a7482517235173ddb4083788de60b90e # 微信开放平台 appsecret
+    redirect_url: http://guli.shop/api/ucenter/wx/callback # 微信开放平台 重定向url
 #配置mapper xml文件的路径
 mybatis-plus:
   mapper-locations: classpath:top/chenbn/guli/mapper/xml/*.xml
