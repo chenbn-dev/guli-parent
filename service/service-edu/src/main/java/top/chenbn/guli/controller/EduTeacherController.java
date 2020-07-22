@@ -24,7 +24,7 @@ import java.util.Map;
  * @since 2020-06-26
  */
 @RestController
-@Api(description = "讲师管理模块")
+@Api(value = "讲师管理模块 Api", tags = "讲师管理模块")
 @RequestMapping("/edu/service/teacher")
 @CrossOrigin // 解决跨域
 public class EduTeacherController {
@@ -37,6 +37,7 @@ public class EduTeacherController {
    * @return
    */
   @PostMapping("/updateTeacher")
+  @ApiOperation("讲师修改功能")
   public Result updateTeacher(@RequestBody EduTeacher eduTeacher) {
     boolean flag = teacherService.updateById(eduTeacher);
     if (flag) {
