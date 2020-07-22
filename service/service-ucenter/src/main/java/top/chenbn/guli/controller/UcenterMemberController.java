@@ -1,9 +1,11 @@
 package top.chenbn.guli.controller;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.common.util.JwtUtils;
 import top.chenbn.guli.common.util.Result;
+import top.chenbn.guli.common.util.ordervo.UcenterMemberOrder;
 import top.chenbn.guli.entity.UcenterMember;
 import top.chenbn.guli.entity.vo.RegisterVO;
 import top.chenbn.guli.service.UcenterMemberService;
@@ -47,5 +49,15 @@ public class UcenterMemberController {
     // 查询数据库根据用户id获取用户信息
     UcenterMember member = memberService.getById(memberId);
     return Result.ok().data("userInfo", member);
+  }
+
+  // 根据用户id获取用户信息
+  @PostMapping("/getUserInfoOrder/{id}")
+  public UcenterMemberOrder getUserInfoOrder(@PathVariable String id) {
+    UcenterMember member = memberService.getById(id);
+    // 把member对象里面值复制给UcenterMemberOrder对象
+    UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
+    BeanUtils.copyProperties(member, ucenterMemberOrder);
+    return ucenterMemberOrder;
   }
 }

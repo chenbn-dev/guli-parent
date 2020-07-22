@@ -1,9 +1,11 @@
 package top.chenbn.guli.controller.front;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.chenbn.guli.common.util.Result;
+import top.chenbn.guli.common.util.ordervo.CourseWebVoOrder;
 import top.chenbn.guli.entity.EduCourse;
 import top.chenbn.guli.entity.chapter.ChapterVO;
 import top.chenbn.guli.entity.frontvo.CourseFrontVo;
@@ -55,5 +57,14 @@ public class CourseFrontController {
     // 根据课程id查询章节和小节
     List<ChapterVO> chapterVideoList = chapterService.getChapterVideoByCourseId(courseId);
     return Result.ok().data("courseWebVo", courseWebVo).data("chapterVideoList", chapterVideoList);
+  }
+
+  // 根据课程id查询课程信息
+  @PostMapping("/getCourseInfoOrder/{id}")
+  public CourseWebVoOrder getCourseInfoOrder(@PathVariable String id) {
+    CourseWebVo courseInfo = courseService.getBaseCourseInfo(id);
+    CourseWebVoOrder courseWebVoOrder = new CourseWebVoOrder();
+    BeanUtils.copyProperties(courseInfo, courseWebVoOrder);
+    return courseWebVoOrder;
   }
 }
