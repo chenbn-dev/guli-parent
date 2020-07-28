@@ -27,4 +27,6 @@ public interface UcenterMemberService extends IService<UcenterMember> {
   void register(RegisterVO registerVO);
 
   UcenterMember getOpenIdMember(String openid);
+
+  Integer countRegisterDay(String day);
 }
