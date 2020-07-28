@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/order/service/order")
+@RequestMapping("/edu/order/order")
 @Api(value = "订单模块 Api", tags = "订单模块")
 public class OrderController {
   @Autowired private OrderService orderService;
@@ -34,7 +34,7 @@ public class OrderController {
    */
   @ApiOperation("生成订单的方法")
   @PostMapping("/createOrder/{courseId}")
-  public Result save(@PathVariable String courseId, HttpServletRequest request) {
+  public Result createOrders(@PathVariable String courseId, HttpServletRequest request) {
     String orderId = orderService.createOrders(courseId, JwtUtils.getMemberIdByJwtToken(request));
     return Result.ok().data("orderId", orderId);
   }
@@ -46,5 +46,20 @@ public class OrderController {
     wrapper.eq("order_no", orderId);
     Order order = orderService.getOne(wrapper);
     return Result.ok().data("item", order);
+  }
+
+  // 根据课程id和用户id查询订单表中订单状态
+  @GetMapping("isBuyCourse/{courseId}/{memberId}")
+  public boolean isBuyCourse(@PathVariable String courseId, @PathVariable String memberId) {
+    QueryWrapper<Order> wrapper = new QueryWrapper<>();
+    wrapper.eq("course_id", courseId);
+    wrapper.eq("member_id", memberId);
+    wrapper.eq("status", 1); // 支付状态 1代表已经支付
+    int count = orderService.count(wrapper);
+    if (count > 0) { // 已经支付
+      return true;
+    } else {
+      return false;
+    }
   }
 }

@@ -11,6 +11,6 @@ import top.chenbn.guli.common.util.ordervo.UcenterMemberOrder;
 public interface UcenterClient {
 
   // 根据用户id获取用户信息
-  @PostMapping("/edu/center/member/getUserInfoOrder/{id}")
-  public UcenterMemberOrder getUserInfoOrder(@PathVariable("id") String id);
+  @PostMapping("/edu/ucenter/member/getUserInfoOrder/{id}")
+  UcenterMemberOrder getUserInfoOrder(@PathVariable("id") String id);
 }

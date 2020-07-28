@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import top.chenbn.guli.client.OrdersClient;
+import top.chenbn.guli.common.util.JwtUtils;
 import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.common.util.ordervo.CourseWebVoOrder;
 import top.chenbn.guli.entity.EduCourse;
@@ -13,6 +15,7 @@ import top.chenbn.guli.entity.frontvo.CourseWebVo;
 import top.chenbn.guli.service.EduChapterService;
 import top.chenbn.guli.service.EduCourseService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +28,7 @@ public class CourseFrontController {
 
   @Autowired private EduChapterService chapterService;
 
+  @Autowired private OrdersClient ordersClient;
   /**
    * 1 条件查询带分页查询课程
    *
@@ -51,12 +55,17 @@ public class CourseFrontController {
    * @return
    */
   @GetMapping("/getFrontCourseInfo/{courseId}")
-  public Result getFrontCourseInfo(@PathVariable String courseId) {
+  public Result getFrontCourseInfo(@PathVariable String courseId, HttpServletRequest request) {
     // 根据课程id，编写sql语句查询课程信息
     CourseWebVo courseWebVo = courseService.getBaseCourseInfo(courseId);
     // 根据课程id查询章节和小节
     List<ChapterVO> chapterVideoList = chapterService.getChapterVideoByCourseId(courseId);
-    return Result.ok().data("courseWebVo", courseWebVo).data("chapterVideoList", chapterVideoList);
+    // 根据课程id和用户id查询当前课程是否已经支付过了
+    boolean buyCourse = ordersClient.isBuyCourse(courseId, JwtUtils.getMemberIdByJwtToken(request));
+    return Result.ok()
+        .data("courseWebVo", courseWebVo)
+        .data("chapterVideoList", chapterVideoList)
+        .data("isBuy", buyCourse);
   }
 
   // 根据课程id查询课程信息

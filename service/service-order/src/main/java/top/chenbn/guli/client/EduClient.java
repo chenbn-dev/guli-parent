@@ -12,5 +12,5 @@ public interface EduClient {
 
   // 根据课程id查询课程信息
   @PostMapping("/edu/service/coursefront/getCourseInfoOrder/{id}")
-  public CourseWebVoOrder getCourseInfoOrder(@PathVariable("id") String id);
+  CourseWebVoOrder getCourseInfoOrder(@PathVariable("id") String id);
 }

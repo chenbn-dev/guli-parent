@@ -36,7 +36,7 @@ public class PayLogServiceImpl extends ServiceImpl<PayLogMapper, PayLog> impleme
       QueryWrapper<Order> wrapper = new QueryWrapper<>();
       wrapper.eq("order_no", orderNo);
       Order order = orderService.getOne(wrapper);
-
+      System.out.println(order.toString());
       // 2 使用map设置生成二维码需要参数
       Map m = new HashMap();
       m.put("appid", "wx74862e0dfcf69954");
@@ -56,22 +56,20 @@ public class PayLogServiceImpl extends ServiceImpl<PayLogMapper, PayLog> impleme
       client.setHttps(true);
       // 执行post请求发送
       client.post();
-
       // 4 得到发送请求返回结果
       // 返回内容，是使用xml格式返回
       String xml = client.getContent();
-
       // 把xml格式转换map集合，把map集合返回
       Map<String, String> resultMap = WXPayUtil.xmlToMap(xml);
-
       // 最终返回数据 的封装
       Map map = new HashMap();
       map.put("out_trade_no", orderNo);
       map.put("course_id", order.getCourseId());
       map.put("total_fee", order.getTotalFee());
-      map.put("result_code", resultMap.get("result_code")); // 返回二维码操作状态码
-      map.put("code_url", resultMap.get("code_url")); // 二维码地址
-
+      // 返回二维码操作状态码
+      map.put("result_code", resultMap.get("result_code"));
+      // 二维码地址
+      map.put("code_url", resultMap.get("code_url"));
       return map;
     } catch (Exception e) {
       throw new GuliException(20001, "生成二维码失败");
