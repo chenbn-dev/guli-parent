@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author chbn
- * @create 2020-07-12 23:10
+ * @create 2020-07-12
  */
 @Component
 public class VodFileDegradeFeignClient implements VodClient {

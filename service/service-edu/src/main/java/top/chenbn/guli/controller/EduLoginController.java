@@ -1,6 +1,9 @@
 package top.chenbn.guli.controller;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import top.chenbn.guli.common.util.Result;
 
 /**
@@ -9,7 +12,7 @@ import top.chenbn.guli.common.util.Result;
  */
 @RestController
 @RequestMapping("/edu/service/user")
-@CrossOrigin // 解决跨域
+// @CrossOrigin // 解决跨域
 public class EduLoginController {
   // login
   @PostMapping("/login")

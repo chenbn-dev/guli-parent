@@ -13,7 +13,7 @@ import java.util.Map;
  * @author chenbn
  * @since 2020-07-28
  */
-@CrossOrigin
+// @CrossOrigin
 @RestController
 @RequestMapping("/edu/statistics/daily")
 public class StatisticsDailyController {

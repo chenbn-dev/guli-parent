@@ -16,7 +16,7 @@ import top.chenbn.guli.service.CrmBannerService;
  */
 @RestController
 @RequestMapping("/edu/cms/banner-admin")
-@CrossOrigin
+// @CrossOrigin
 public class BannerAdminController {
   @Autowired private CrmBannerService bannerService;
 

@@ -12,6 +12,7 @@
         <module>service</module>
         <module>common</module>
         <module>canal-clientedu</module>
+        <module>infrastructure</module>
     </modules>
     <groupId>top.chenbn</groupId>
     <artifactId>guli-parent</artifactId>

@@ -17,7 +17,7 @@ import top.chenbn.guli.service.EduVideoService;
  */
 @RestController
 @RequestMapping("/edu/service/video")
-@CrossOrigin
+// @CrossOrigin
 public class EduVideoController {
 
   @Autowired private EduVideoService videoService;

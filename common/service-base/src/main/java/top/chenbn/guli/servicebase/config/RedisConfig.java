@@ -21,7 +21,7 @@ import java.time.Duration;
 
 /**
  * @author chbn
- * @create 2020-07-15 12:43
+ * @create 2020-07-15
  */
 @EnableCaching // 开启缓存
 @Configuration // 配置类

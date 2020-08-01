@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/edu/service/teacher-front")
-@CrossOrigin
+// @CrossOrigin
 public class TeacherFrontController {
   @Autowired private EduTeacherService teacherService;
 

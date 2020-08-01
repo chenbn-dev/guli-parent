@@ -3,7 +3,6 @@ package top.chenbn.guli.controller;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.chenbn.guli.common.util.JwtUtils;
@@ -16,7 +15,7 @@ import top.chenbn.guli.util.HttpClientUtils;
 import java.net.URLEncoder;
 import java.util.HashMap;
 
-@CrossOrigin
+// @CrossOrigin
 @Controller // 只是请求地址，不需要返回数据
 @RequestMapping("/api/ucenter/wx")
 public class WxApiController {

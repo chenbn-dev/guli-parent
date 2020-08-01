@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 /**
  * @author chbn
- * @create 2020-07-30 13:03
+ * @create 2020-07-30
  */
 @SpringBootApplication
 public class CanalApplication9001 implements CommandLineRunner {

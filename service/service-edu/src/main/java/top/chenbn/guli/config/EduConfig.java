@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
 
 /**
  * @author chbn
- * @create 2020-06-26 8:42
+ * @create 2020-06-26
  */
 @Configuration
 @MapperScan("top.chenbn.guli.mapper")

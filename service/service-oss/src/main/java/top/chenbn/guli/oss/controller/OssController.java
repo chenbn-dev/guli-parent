@@ -1,7 +1,6 @@
 package top.chenbn.guli.oss.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +14,7 @@ import top.chenbn.guli.oss.service.OssService;
  */
 @RestController
 @RequestMapping("/edu/oss/file")
-@CrossOrigin
+// @CrossOrigin
 public class OssController {
 
   @Autowired private OssService ossService;

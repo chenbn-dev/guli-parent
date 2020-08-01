@@ -10,7 +10,7 @@ import java.util.Map;
  * 统一返回结果的类
  *
  * @author chbn
- * @create 2020-06-26 11:02
+ * @create 2020-06-26
  */
 @Data
 public class Result {

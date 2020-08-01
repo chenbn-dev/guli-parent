@@ -9,7 +9,7 @@ import top.chenbn.guli.common.util.Result;
 
 /**
  * @author chbn
- * @create 2020-06-26 15:19
+ * @create 2020-06-26
  */
 @ControllerAdvice
 @Slf4j

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author chenbn
  * @since 2020-07-20
  */
-@CrossOrigin
+// @CrossOrigin
 @RestController
 @RequestMapping("/edu/order/order")
 @Api(value = "订单模块 Api", tags = "订单模块")

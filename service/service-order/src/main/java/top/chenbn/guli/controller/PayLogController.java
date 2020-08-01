@@ -1,7 +1,10 @@
 package top.chenbn.guli.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import top.chenbn.guli.common.util.Result;
 import top.chenbn.guli.service.PayLogService;
 
@@ -13,7 +16,7 @@ import java.util.Map;
  * @author chenbn
  * @since 2020-07-20
  */
-@CrossOrigin
+// @CrossOrigin
 @RestController
 @RequestMapping("/edu/order/paylog")
 public class PayLogController {
@@ -21,7 +24,7 @@ public class PayLogController {
 
   // 生成微信支付二维码接口
   // 参数是订单号
-    @GetMapping("/createNative/{orderNo}")
+  @GetMapping("/createNative/{orderNo}")
   public Result createNative(@PathVariable String orderNo) {
     // 返回信息，包含二维码地址，还有其他需要的信息
     Map map = payLogService.createNatvie(orderNo);

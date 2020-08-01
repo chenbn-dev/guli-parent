@@ -6,7 +6,7 @@ import java.io.StringWriter;
 
 /**
  * @author chbn
- * @create 2020-06-26 19:13
+ * @create 2020-06-26
  */
 public class ExceptionUtil {
   public static String getMessage(Exception e) {

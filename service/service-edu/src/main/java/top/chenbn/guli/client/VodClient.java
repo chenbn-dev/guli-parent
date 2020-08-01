@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author chbn
- * @create 2020-07-12 16:26
+ * @create 2020-07-12
  */
 @Component
 @FeignClient(name = "service-vod-8003", fallback = VodFileDegradeFeignClient.class)
