@@ -130,7 +130,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
         </dependency>
     </dependencies>
     <!-- 项目打包时会将java目录中的*.xml文件也进行打包 -->
